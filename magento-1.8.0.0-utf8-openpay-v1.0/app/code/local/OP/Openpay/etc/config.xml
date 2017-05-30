@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpay
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpay>
+            <version>1.0.0</version>
+        </OP_Openpay>
+    </modules>
+    <global>
+        <models>
+            <openpay>
+                <class>OP_Openpay_Model</class>
+            </openpay>
+        </models>
+        <helpers>
+	      <openpay>
+            <class>OP_Openpay_Helper</class>
+		  </openpay>
+	    </helpers>
+        <resources>
+            <openpay_setup>
+                <setup>
+                    <module>OP_Openpay</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpay_setup>
+            <openpay_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpay_write>
+            <openpay_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpay_read>
+        </resources>
+       
+    </global>
+    <frontend>
+        <secure_url>
+            <openpay_processing>/openpay/processing</openpay_processing>
+        </secure_url>
+        <routers>
+            <openpay>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpay</module>
+                    <frontName>openpay</frontName>
+                </args>
+            </openpay>
+        </routers>
+        <layout>
+            <updates>
+                <openpay>
+                    <file>openpay.xml</file>
+                </openpay>
+            </updates>
+        </layout>
+    </frontend>
+</config>

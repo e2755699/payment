@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpayvacc
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpayvacc>
+            <version>1.0.0</version>
+        </OP_Openpayvacc>
+    </modules>
+    <global>
+        <models>
+            <openpayvacc>
+                <class>OP_Openpayvacc_Model</class>
+            </openpayvacc>
+        </models>
+        <helpers>
+	      <openpayvacc>
+            <class>OP_Openpayvacc_Helper</class>
+		  </openpayvacc>
+	    </helpers>
+        <resources>
+            <openpayvacc_setup>
+                <setup>
+                    <module>OP_Openpayvacc</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpayvacc_setup>
+            <openpayvacc_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpayvacc_write>
+            <openpayvacc_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpayvacc_read>
+        </resources>
+        <blocks>
+            <openpayvacc><class>OP_Openpayvacc_Block</class></openpayvacc>
+        </blocks>
+    </global>
+    <frontend>
+        <secure_url>
+            <openpayvacc_processing>/openpayvacc/processing</openpayvacc_processing>
+        </secure_url>
+        <routers>
+            <openpayvacc>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpayvacc</module>
+                    <frontName>openpayvacc</frontName>
+                </args>
+            </openpayvacc>
+        </routers>
+        <layout>
+            <updates>
+                <openpayvacc>
+                    <file>openpayvacc.xml</file>
+                </openpayvacc>
+            </updates>
+        </layout>
+    </frontend>
+	<default>
+        <payment>        
+            <openpayvacc_main>
+                <active>0</active>
+                <model>openpayvacc/main</model>
+                <order_status>1</order_status>
+                <title>台灣里 虛擬帳號繳款</title>
+                <allowspecific>0</allowspecific>
+            </openpayvacc_main>
+        </payment>
+    </default> 
+</config>

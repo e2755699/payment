@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpaytenpay
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpaytenpay>
+            <version>1.0.0</version>
+        </OP_Openpaytenpay>
+    </modules>
+    <global>
+        <models>
+            <openpaytenpay>
+                <class>OP_Openpaytenpay_Model</class>
+            </openpaytenpay>
+        </models>
+        <helpers>
+	      <openpaytenpay>
+            <class>OP_Openpaytenpay_Helper</class>
+		  </openpaytenpay>
+	    </helpers>
+        <resources>
+            <openpaytenpay_setup>
+                <setup>
+                    <module>OP_Openpaytenpay</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpaytenpay_setup>
+            <openpaytenpay_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpaytenpay_write>
+            <openpaytenpay_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpaytenpay_read>
+        </resources>
+        <blocks>
+            <openpaytenpay><class>OP_Openpaytenpay_Block</class></openpaytenpay>
+        </blocks>
+    </global>
+    <frontend>
+        <secure_url>
+            <openpaytenpay_processing>/openpaytenpay/processing</openpaytenpay_processing>
+        </secure_url>
+        <routers>
+            <openpaytenpay>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpaytenpay</module>
+                    <frontName>openpaytenpay</frontName>
+                </args>
+            </openpaytenpay>
+        </routers>
+        <layout>
+            <updates>
+                <openpaytenpay>
+                    <file>openpaytenpay.xml</file>
+                </openpaytenpay>
+            </updates>
+        </layout>
+    </frontend>
+	<default>
+        <payment>        
+            <openpaytenpay_main>
+                <active>0</active>
+                <model>openpaytenpay/main</model>
+                <order_status>1</order_status>
+                <title>台灣里 財富通</title>
+                <allowspecific>0</allowspecific>
+            </openpaytenpay_main>
+        </payment>
+    </default> 
+</config>

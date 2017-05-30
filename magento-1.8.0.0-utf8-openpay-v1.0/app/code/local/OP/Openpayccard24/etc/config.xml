@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpayccard24
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpayccard24>
+            <version>1.0.0</version>
+        </OP_Openpayccard24>
+    </modules>
+    <global>
+        <models>
+            <openpayccard24>
+                <class>OP_Openpayccard24_Model</class>
+            </openpayccard24>
+        </models>
+        <helpers>
+	      <openpayccard24>
+            <class>OP_Openpayccard24_Helper</class>
+		  </openpayccard24>
+	    </helpers>
+        <resources>
+            <openpayccard24_setup>
+                <setup>
+                    <module>OP_Openpayccard24</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpayccard24_setup>
+            <openpayccard24_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpayccard24_write>
+            <openpayccard24_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpayccard24_read>
+        </resources>
+        <blocks>
+            <openpayccard24><class>OP_Openpayccard24_Block</class></openpayccard24>
+        </blocks>
+    </global>
+    <frontend>
+        <secure_url>
+            <openpayccard24_processing>/openpayccard24/processing</openpayccard24_processing>
+        </secure_url>
+        <routers>
+            <openpayccard24>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpayccard24</module>
+                    <frontName>openpayccard24</frontName>
+                </args>
+            </openpayccard24>
+        </routers>
+        <layout>
+            <updates>
+                <openpayccard24>
+                    <file>openpayccard24.xml</file>
+                </openpayccard24>
+            </updates>
+        </layout>
+    </frontend>
+	<default>
+        <payment>        
+            <openpayccard24_main>
+                <active>0</active>
+                <model>openpayccard24/main</model>
+                <order_status>1</order_status>
+                <title>台灣里 線上24期刷卡</title>
+                <allowspecific>0</allowspecific>
+            </openpayccard24_main>
+        </payment>
+    </default> 
+</config>

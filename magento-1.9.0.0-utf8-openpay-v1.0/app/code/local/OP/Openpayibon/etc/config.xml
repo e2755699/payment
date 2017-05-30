@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpayibon
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpayibon>
+            <version>1.0.0</version>
+        </OP_Openpayibon>
+    </modules>
+    <global>
+        <models>
+            <openpayibon>
+                <class>OP_Openpayibon_Model</class>
+            </openpayibon>
+        </models>
+        <helpers>
+	      <openpayibon>
+            <class>OP_Openpayibon_Helper</class>
+		  </openpayibon>
+	    </helpers>
+        <resources>
+            <openpayibon_setup>
+                <setup>
+                    <module>OP_Openpayibon</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpayibon_setup>
+            <openpayibon_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpayibon_write>
+            <openpayibon_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpayibon_read>
+        </resources>
+        <blocks>
+            <openpayibon><class>OP_Openpayibon_Block</class></openpayibon>
+        </blocks>
+    </global>
+    <frontend>
+        <secure_url>
+            <openpayibon_processing>/openpayibon/processing</openpayibon_processing>
+        </secure_url>
+        <routers>
+            <openpayibon>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpayibon</module>
+                    <frontName>openpayibon</frontName>
+                </args>
+            </openpayibon>
+        </routers>
+        <layout>
+            <updates>
+                <openpayibon>
+                    <file>openpayibon.xml</file>
+                </openpayibon>
+            </updates>
+        </layout>
+    </frontend>
+	<default>
+        <payment>        
+            <openpayibon_main>
+                <active>0</active>
+                <model>openpayibon/main</model>
+                <order_status>1</order_status>
+                <title>台灣里 7-11 Ibon繳款</title>
+                <allowspecific>0</allowspecific>
+            </openpayibon_main>
+        </payment>
+    </default> 
+</config>

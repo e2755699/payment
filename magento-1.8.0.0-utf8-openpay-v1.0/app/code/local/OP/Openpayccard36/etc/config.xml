@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpayccard36
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpayccard36>
+            <version>1.0.0</version>
+        </OP_Openpayccard36>
+    </modules>
+    <global>
+        <models>
+            <openpayccard36>
+                <class>OP_Openpayccard36_Model</class>
+            </openpayccard36>
+        </models>
+        <helpers>
+	      <openpayccard36>
+            <class>OP_Openpayccard36_Helper</class>
+		  </openpayccard36>
+	    </helpers>
+        <resources>
+            <openpayccard36_setup>
+                <setup>
+                    <module>OP_Openpayccard36</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpayccard36_setup>
+            <openpayccard36_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpayccard36_write>
+            <openpayccard36_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpayccard36_read>
+        </resources>
+        <blocks>
+            <openpayccard36><class>OP_Openpayccard36_Block</class></openpayccard36>
+        </blocks>
+    </global>
+    <frontend>
+        <secure_url>
+            <openpayccard36_processing>/openpayccard36/processing</openpayccard36_processing>
+        </secure_url>
+        <routers>
+            <openpayccard36>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpayccard36</module>
+                    <frontName>openpayccard36</frontName>
+                </args>
+            </openpayccard36>
+        </routers>
+        <layout>
+            <updates>
+                <openpayccard36>
+                    <file>openpayccard36.xml</file>
+                </openpayccard36>
+            </updates>
+        </layout>
+    </frontend>
+	<default>
+        <payment>        
+            <openpayccard36_main>
+                <active>0</active>
+                <model>openpayccard36/main</model>
+                <order_status>1</order_status>
+                <title>台灣里 線上36期刷卡</title>
+                <allowspecific>0</allowspecific>
+            </openpayccard36_main>
+        </payment>
+    </default> 
+</config>

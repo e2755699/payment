@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpaywebatm
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpaywebatm>
+            <version>1.0.0</version>
+        </OP_Openpaywebatm>
+    </modules>
+    <global>
+        <models>
+            <openpaywebatm>
+                <class>OP_Openpaywebatm_Model</class>
+            </openpaywebatm>
+        </models>
+        <helpers>
+	      <openpaywebatm>
+            <class>OP_Openpaywebatm_Helper</class>
+		  </openpaywebatm>
+	    </helpers>
+        <resources>
+            <openpaywebatm_setup>
+                <setup>
+                    <module>OP_Openpaywebatm</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpaywebatm_setup>
+            <openpaywebatm_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpaywebatm_write>
+            <openpaywebatm_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpaywebatm_read>
+        </resources>
+        <blocks>
+            <openpaywebatm><class>OP_Openpaywebatm_Block</class></openpaywebatm>
+        </blocks>
+    </global>
+    <frontend>
+        <secure_url>
+            <openpaywebatm_processing>/openpaywebatm/processing</openpaywebatm_processing>
+        </secure_url>
+        <routers>
+            <openpaywebatm>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpaywebatm</module>
+                    <frontName>openpaywebatm</frontName>
+                </args>
+            </openpaywebatm>
+        </routers>
+        <layout>
+            <updates>
+                <openpaywebatm>
+                    <file>openpaywebatm.xml</file>
+                </openpaywebatm>
+            </updates>
+        </layout>
+    </frontend>
+	<default>
+        <payment>        
+            <openpaywebatm_main>
+                <active>0</active>
+                <model>openpaywebatm/main</model>
+                <order_status>1</order_status>
+                <title>台灣里 WEB ATM</title>
+                <allowspecific>0</allowspecific>
+            </openpaywebatm_main>
+        </payment>
+    </default> 
+</config>

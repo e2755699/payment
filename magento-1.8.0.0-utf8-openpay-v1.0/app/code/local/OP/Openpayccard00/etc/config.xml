@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpayccard00
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpayccard00>
+            <version>1.0.0</version>
+        </OP_Openpayccard00>
+    </modules>
+    <global>
+        <models>
+            <openpayccard00>
+                <class>OP_Openpayccard00_Model</class>
+            </openpayccard00>
+        </models>
+        <helpers>
+	      <openpayccard00>
+            <class>OP_Openpayccard00_Helper</class>
+		  </openpayccard00>
+	    </helpers>
+        <resources>
+            <openpayccard00_setup>
+                <setup>
+                    <module>OP_Openpayccard00</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpayccard00_setup>
+            <openpayccard00_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpayccard00_write>
+            <openpayccard00_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpayccard00_read>
+        </resources>
+        <blocks>
+            <openpayccard00><class>OP_Openpayccard00_Block</class></openpayccard00>
+        </blocks>
+    </global>
+    <frontend>
+        <secure_url>
+            <openpayccard00_processing>/openpayccard00/processing</openpayccard00_processing>
+        </secure_url>
+        <routers>
+            <openpayccard00>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpayccard00</module>
+                    <frontName>openpayccard00</frontName>
+                </args>
+            </openpayccard00>
+        </routers>
+        <layout>
+            <updates>
+                <openpayccard00>
+                    <file>openpayccard00.xml</file>
+                </openpayccard00>
+            </updates>
+        </layout>
+    </frontend>
+	<default>
+        <payment>        
+            <openpayccard00_main>
+                <active>0</active>
+                <model>openpayccard00/main</model>
+                <order_status>1</order_status>
+                <title>台灣里 線上刷卡</title>
+                <allowspecific>0</allowspecific>
+            </openpayccard00_main>
+        </payment>
+    </default> 
+</config>

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpaychinapay
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpaychinapay>
+            <version>1.0.0</version>
+        </OP_Openpaychinapay>
+    </modules>
+    <global>
+        <models>
+            <openpaychinapay>
+                <class>OP_Openpaychinapay_Model</class>
+            </openpaychinapay>
+        </models>
+        <helpers>
+	      <openpaychinapay>
+            <class>OP_Openpaychinapay_Helper</class>
+		  </openpaychinapay>
+	    </helpers>
+        <resources>
+            <openpaychinapay_setup>
+                <setup>
+                    <module>OP_Openpaychinapay</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpaychinapay_setup>
+            <openpaychinapay_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpaychinapay_write>
+            <openpaychinapay_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpaychinapay_read>
+        </resources>
+        <blocks>
+            <openpaychinapay><class>OP_Openpaychinapay_Block</class></openpaychinapay>
+        </blocks>
+    </global>
+    <frontend>
+        <secure_url>
+            <openpaychinapay_processing>/openpaychinapay/processing</openpaychinapay_processing>
+        </secure_url>
+        <routers>
+            <openpaychinapay>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpaychinapay</module>
+                    <frontName>openpaychinapay</frontName>
+                </args>
+            </openpaychinapay>
+        </routers>
+        <layout>
+            <updates>
+                <openpaychinapay>
+                    <file>openpaychinapay.xml</file>
+                </openpaychinapay>
+            </updates>
+        </layout>
+    </frontend>
+	<default>
+        <payment>        
+            <openpaychinapay_main>
+                <active>0</active>
+                <model>openpaychinapay/main</model>
+                <order_status>1</order_status>
+                <title>台灣里 中國銀聯卡</title>
+                <allowspecific>0</allowspecific>
+            </openpaychinapay_main>
+        </payment>
+    </default> 
+</config>

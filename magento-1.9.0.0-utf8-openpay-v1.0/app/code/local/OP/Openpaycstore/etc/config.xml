@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Openpay  
+ * @package    OP_Openpaycstore
+ * @copyright  Copyright (c) 2013 Openpay (http://www.twv.com.tw)
+ */
+-->
+<config>
+    <modules>
+        <OP_Openpaycstore>
+            <version>1.0.0</version>
+        </OP_Openpaycstore>
+    </modules>
+    <global>
+        <models>
+            <openpaycstore>
+                <class>OP_Openpaycstore_Model</class>
+            </openpaycstore>
+        </models>
+        <helpers>
+	      <openpaycstore>
+            <class>OP_Openpaycstore_Helper</class>
+		  </openpaycstore>
+	    </helpers>
+        <resources>
+            <openpaycstore_setup>
+                <setup>
+                    <module>OP_Openpaycstore</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </openpaycstore_setup>
+            <openpaycstore_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </openpaycstore_write>
+            <openpaycstore_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </openpaycstore_read>
+        </resources>
+        <blocks>
+            <openpaycstore><class>OP_Openpaycstore_Block</class></openpaycstore>
+        </blocks>
+    </global>
+    <frontend>
+        <secure_url>
+            <openpaycstore_processing>/openpaycstore/processing</openpaycstore_processing>
+        </secure_url>
+        <routers>
+            <openpaycstore>
+                <use>standard</use>
+                <args>
+                    <module>OP_Openpaycstore</module>
+                    <frontName>openpaycstore</frontName>
+                </args>
+            </openpaycstore>
+        </routers>
+        <layout>
+            <updates>
+                <openpaycstore>
+                    <file>openpaycstore.xml</file>
+                </openpaycstore>
+            </updates>
+        </layout>
+    </frontend>
+	<default>
+        <payment>        
+            <openpaycstore_main>
+                <active>0</active>
+                <model>openpaycstore/main</model>
+                <order_status>1</order_status>
+                <title>台灣里 便利超商繳款</title>
+                <allowspecific>0</allowspecific>
+            </openpaycstore_main>
+        </payment>
+    </default> 
+</config>
